@@ -54,21 +54,23 @@ public class Tree {
         Stack<TreeNode> tree_stack = new Stack<>();
         tree_stack.push(root);
         while (!tree_stack.empty()){
-            TreeNode curNode  = tree_stack.pop();
+            TreeNode curNode  = tree_stack.peek();
 
-            if (curNode.rightNode != null)
-                tree_stack.push(curNode.rightNode);
+            while (curNode.leftNode != null){
 
-
-
-            if (curNode.leftNode != null){
-                tree_stack.push(curNode);
                 tree_stack.push(curNode.leftNode);
+                curNode = curNode.leftNode;
             }
 
-            System.out.println(curNode.val);
+            while (curNode.rightNode == null && !tree_stack.isEmpty()){
+                curNode  = tree_stack.pop();
+                System.out.println(curNode.val);
+            }
 
 
+            if (curNode.rightNode != null){
+                tree_stack.push(curNode.rightNode);
+            }
 
         }
 
@@ -81,5 +83,35 @@ public class Tree {
         postOrderTravers(root.leftNode);
         postOrderTravers(root.rightNode);
         System.out.println(root.val);
+    }
+
+    //二叉树的后序遍历非递归版
+    public static void postOrderTraversDFS(TreeNode root){
+        Stack<TreeNode> tree_stack = new Stack<>();
+        TreeNode preNode = root;
+        tree_stack.push(root);
+        while (!tree_stack.empty()){
+            TreeNode curNode  = tree_stack.peek();
+
+            while ( curNode.leftNode != null){
+
+                tree_stack.push(curNode.leftNode);
+                curNode = curNode.leftNode;
+            }
+
+            while (curNode.rightNode == null ||  curNode.rightNode == preNode) {
+                curNode = tree_stack.pop();
+                System.out.println(curNode.val);
+                preNode = curNode;
+                if (tree_stack.empty())
+                    break;
+                curNode = tree_stack.peek();
+            }
+            if(!tree_stack.empty() &&(curNode.rightNode != null || curNode.rightNode != preNode)){
+
+                tree_stack.push(curNode.rightNode);
+            }
+        }
+
     }
 }
