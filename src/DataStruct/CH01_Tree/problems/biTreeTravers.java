@@ -13,7 +13,8 @@ public class biTreeTravers {
 //        preOrderTraversDFS(tree);
 //        midOrderTravers(tree);
 //        midOrderTraversDFS(tree);
-        postOrderTravers(tree);
-        postOrderTraversDFS(tree);
+//        postOrderTravers(tree);
+//        postOrderTraversDFS(tree);
+        biTreeTraversBFS(tree);
     }
 }

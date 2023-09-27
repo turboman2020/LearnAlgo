@@ -1,5 +1,8 @@
 package src.DataStruct.CH01_Tree.utils;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Tree {
@@ -87,6 +90,8 @@ public class Tree {
 
     //二叉树的后序遍历非递归版
     public static void postOrderTraversDFS(TreeNode root){
+
+        List<String> list = new LinkedList<>();
         Stack<TreeNode> tree_stack = new Stack<>();
         TreeNode preNode = root;
         tree_stack.push(root);
@@ -101,7 +106,8 @@ public class Tree {
 
             if(curNode.rightNode == null ||  curNode.rightNode == preNode) {
                 curNode = tree_stack.pop();
-                System.out.println(curNode.val);
+//                System.out.println(curNode.val);
+                list.add(curNode.val);
                 preNode = curNode;
                 if (tree_stack.empty())
                     break;
@@ -113,5 +119,29 @@ public class Tree {
             }
         }
 
+        for(String str: list){System.out.println(str);}
+
+
     }
+
+    //二叉树层序遍历
+    public static void biTreeTraversBFS(TreeNode root){
+        List<String> list = new LinkedList<>();
+        var tree_queue = new LinkedList<TreeNode>();
+        tree_queue.add(root);
+        while (!tree_queue.isEmpty()){
+            TreeNode curNode  = tree_queue.pop();
+//            System.out.println(curNode.val);
+            list.add(curNode.val);
+            if(curNode.leftNode != null) {
+                tree_queue.add(curNode.leftNode);
+            }
+            if(curNode.rightNode != null){
+                tree_queue.add(curNode.rightNode);
+            }
+        }
+        for(String str: list){System.out.println(str);}
+
+    }
+
 }
