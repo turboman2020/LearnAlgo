@@ -93,13 +93,13 @@ public class Tree {
         while (!tree_stack.empty()){
             TreeNode curNode  = tree_stack.peek();
 
-            while ( curNode.leftNode != null){
+            while ( curNode.leftNode != null && curNode.rightNode != preNode){
 
                 tree_stack.push(curNode.leftNode);
                 curNode = curNode.leftNode;
             }
 
-            while (curNode.rightNode == null ||  curNode.rightNode == preNode) {
+            if(curNode.rightNode == null ||  curNode.rightNode == preNode) {
                 curNode = tree_stack.pop();
                 System.out.println(curNode.val);
                 preNode = curNode;
@@ -107,7 +107,7 @@ public class Tree {
                     break;
                 curNode = tree_stack.peek();
             }
-            if(!tree_stack.empty() &&(curNode.rightNode != null || curNode.rightNode != preNode)){
+            if((curNode.rightNode != null && curNode.rightNode != preNode)){
 
                 tree_stack.push(curNode.rightNode);
             }
