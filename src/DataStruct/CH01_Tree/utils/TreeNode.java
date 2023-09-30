@@ -1,20 +1,20 @@
 package src.DataStruct.CH01_Tree.utils;
 
 public class TreeNode {
-    public String val;
+    public int val;
     public TreeNode leftNode;
     public TreeNode rightNode;
 
-    public  TreeNode(String val){
+    public  TreeNode(int val){
         this.val = val;
         this.leftNode = null;
         this.rightNode = null;
     }
-    public String getVal() {
+    public int getVal() {
         return val;
     }
 
-    public void setVal(String val) {
+    public void setVal(int val) {
         this.val = val;
     }
 

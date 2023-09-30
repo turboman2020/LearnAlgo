@@ -7,14 +7,14 @@ import static src.DataStruct.CH01_Tree.utils.Tree.*;
 public class biTreeTravers {
     public static void main(String [] args){
 
-        String [] tree_arr = new String[]{"1", "2", "3", "4", "5", "$", "7"};
+        int [] tree_arr = new int[]{1, -1, 2, -1,-1, 3};
         TreeNode tree = createTree(tree_arr, 0);
 //        preOrderTravers(tree);
 //        preOrderTraversDFS(tree);
-//        midOrderTravers(tree);
-//        midOrderTraversDFS(tree);
+        midOrderTravers(tree);
+        midOrderTraversDFS(tree);
 //        postOrderTravers(tree);
 //        postOrderTraversDFS(tree);
-        biTreeTraversBFS(tree);
+//        biTreeTraversBFS(tree);
     }
 }
