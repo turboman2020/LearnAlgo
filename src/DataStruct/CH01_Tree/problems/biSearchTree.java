@@ -21,12 +21,11 @@ public class biSearchTree {
         TreeNode pre_node = cur;
         for (int i = 1; i < arr.length; i ++){
             while( cur != null){
+                pre_node = cur;
                 if (cur.val > arr[i]){
-                    pre_node = cur;
                     cur = cur.leftNode;
                 }
                 else{
-                    pre_node = cur;
                     cur = cur.rightNode;
                 }
             }
