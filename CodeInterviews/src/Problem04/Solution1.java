@@ -14,7 +14,7 @@ public class Solution1 {
 
     public static boolean findNuminArray(int [][] arrays, int row, int col, int target) {
         //递归方法
-        if (row == arrays.length || col < 0 ) return false;
+        if (arrays == null || row == arrays.length || col < 0 ) return false;
         if (arrays[row][col] == target) return true;
         if (arrays[row][col] > target)
             return findNuminArray(arrays, row, --col, target);
@@ -24,7 +24,7 @@ public class Solution1 {
     }
 
     public static boolean findNuminArray(int [][] arrays, int target) {
-
+        if (arrays == null) return false;
         int curRow = 0, curCol = arrays[0].length - 1;
         boolean result = false;
         while (!result || (curCol < 0 || curRow == arrays.length)){
