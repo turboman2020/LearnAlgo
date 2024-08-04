@@ -1,7 +1,4 @@
-package CodeInterviews.src.Problem03;
-
-import java.util.HashSet;
-import java.util.Set;
+package CodeInterviews.src.Array.Problem03;
 
 public class Solution3 {
     public static void main(String [] args){

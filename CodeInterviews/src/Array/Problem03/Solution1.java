@@ -1,4 +1,4 @@
-package CodeInterviews.src.Problem03;
+package CodeInterviews.src.Array.Problem03;
 
 import java.util.Arrays;
 
