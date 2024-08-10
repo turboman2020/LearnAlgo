@@ -16,6 +16,9 @@ public class treeTraverse {
         System.out.println(Arrays.toString(res.toArray()));
 //        res = midOrderTraverse(root);
 //        System.out.println(Arrays.toString(res.toArray()));
+        postOrderTraverse(root);
+        res = postOrderTraverse3(root);
+        System.out.println(Arrays.toString(res.toArray()));
 
     }
 
@@ -80,11 +83,82 @@ public class treeTraverse {
 
     }
 
-    public void postOrderTraverse(TreeNode root){
+    public static void postOrderTraverse(TreeNode root){
         if (root == null) return;
         preOrderTraverse(root.leftChild);
         preOrderTraverse(root.rightChild);
         System.out.println(root.value);
+
+    }
+
+    public static List<Integer> postOrderTraverse2(TreeNode root){
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode preNode = root;
+        List<Integer> res = new LinkedList<>();
+        while(root != null || !stack.isEmpty()){
+
+            while (root != null ){
+                stack.push(root);
+                root = root.leftChild;
+            }
+            root = stack.peek();
+            if(root.rightChild == null || preNode == root.rightChild) {
+                root = stack.pop();
+                res.add(root.value);
+                preNode = root;
+                root = null;
+
+            }else{
+                root = root.rightChild;
+            }
+
+
+        }
+        return  res;
+
+    }
+
+    public static List<Integer> postOrderTraverse3(TreeNode root){
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode preNode = root;
+        List<Integer> res = new LinkedList<>();
+        while(root != null || !stack.isEmpty()) {
+
+            while (root != null) {
+                stack.push(root);
+                root = root.leftChild;
+            }
+
+            root = stack.peek();
+            if (root.rightChild == null || preNode == root.rightChild) {
+                root = stack.pop();
+                res.add(root.value);
+                preNode = root;
+                root = null;
+            } else {
+                root = root.rightChild;
+            }
+        }
+        return  res;
+
+    }
+
+    public static List<Integer> postOrderTraverse4(TreeNode root){
+        Stack<TreeNode> stack = new Stack<>();
+
+        List<Integer> res = new LinkedList<>();
+        while(root != null || !stack.isEmpty()){
+
+            while (root != null ){
+                stack.push(root);
+                res.add(0, root.value);
+                root = root.rightChild;
+            }
+            root = stack.pop();
+            root = root.leftChild;
+
+        }
+        return  res;
 
     }
 }
