@@ -118,32 +118,8 @@ public class treeTraverse {
 
     }
 
+
     public static List<Integer> postOrderTraverse3(TreeNode root){
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode preNode = root;
-        List<Integer> res = new LinkedList<>();
-        while(root != null || !stack.isEmpty()) {
-
-            while (root != null) {
-                stack.push(root);
-                root = root.leftChild;
-            }
-
-            root = stack.peek();
-            if (root.rightChild == null || preNode == root.rightChild) {
-                root = stack.pop();
-                res.add(root.value);
-                preNode = root;
-                root = null;
-            } else {
-                root = root.rightChild;
-            }
-        }
-        return  res;
-
-    }
-
-    public static List<Integer> postOrderTraverse4(TreeNode root){
         Stack<TreeNode> stack = new Stack<>();
 
         List<Integer> res = new LinkedList<>();
