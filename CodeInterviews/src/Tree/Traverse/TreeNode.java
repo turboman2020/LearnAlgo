@@ -1,9 +1,9 @@
 package CodeInterviews.src.Tree.Traverse;
 
 public class TreeNode {
-    int value;
-    TreeNode leftChild;
-    TreeNode rightChild;
+    public int value;
+    public TreeNode leftChild;
+    public TreeNode rightChild;
     public TreeNode(){};
     public TreeNode(int value){
        this(value, null, null);
