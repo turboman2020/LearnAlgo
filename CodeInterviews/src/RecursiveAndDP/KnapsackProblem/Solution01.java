@@ -21,7 +21,6 @@ public class Solution01 {
         //    return res;
 
         // 方法三
-        // memo[i][j] 表示在处理完第i个物品后剩余容量为j时的最大价值
         memo = new int[weight.length][c+1];
         for(int i = 0 ;i < weight.length; i++){
             for(int j = c; j >= 0; j--){
