@@ -13,7 +13,7 @@ public class Solution03 {
     }
 
     public static boolean wordBreakDP(String s, List<String> wordDict) {
-        // memo[i][j] 表示 s从[0 ... i]的字串是否能被 wordDcit [0 ... j]的单词拆分
+        // memo[i][j] 表示 s从[0 ... i] 的字串是否能被 wordDcit [0 ... j]的单词拆分
         boolean [] memo = new boolean [s.length()+1];
         memo[0] = true;
         for(int i = 1; i <= s.length(); i ++){
