@@ -6,13 +6,13 @@ public class Solution02 {
     static int [] [] memo;
     public static void main(String [] array){
 
-        int [] weight = new int [] {6,5,6,6,3,7};
-        int [] value = new int [] {5,6,4,6,5,2};
-        int c = 15;
+//        int [] weight = new int [] {6,5,6,6,3,7};
+//        int [] value = new int [] {5,6,4,6,5,2};
+//        int c = 15;
 
-//        int [] weight = new int [] {1,2,3};
-//        int [] value = new int [] {6,10,12};
-//        int c = 5;
+        int [] weight = new int [] {1,2,3};
+        int [] value = new int [] {6,10,12};
+        int c = 5;
         int maxValue = knapsackProblem04(weight, value, c);
         System.out.println(maxValue);
     }
@@ -29,16 +29,15 @@ public class Solution02 {
                 memo[0][j] = value[0];
             }
         }
+        System.out.println(Arrays.toString(memo[0]));
         for(int i = 1 ;i < weight.length; i++){
-            // 可以从 j = weight[i]开始遍历
             for(int j = 0; j <= c; j++){
                 memo[i][j] = memo[i-1][j];
                 if(weight[i] <= j) {
                     memo[i][j] = Math.max(memo[i][j], value[i] + memo[i-1][j-weight[i]]);
                 }
-
             }
-            System.out.println(Arrays.toString(memo[i%2]));
+            System.out.println(Arrays.toString(memo[i]));
 
         }
         return memo[weight.length-1][c];
@@ -53,11 +52,13 @@ public class Solution02 {
         for(int j = weight[0]; j <= c; j++){
             memo[0][j] = value[0];
         }
-
+        System.out.println(Arrays.toString(memo[0]));
         for(int i = 1 ;i < weight.length; i++){
-            // 可以从 j = weight[i]开始遍历
+            // 可以从 j = weight[i]开始遍历， memo[i][j< weight[i]]的数据含义不再正确
             for(int j = weight[i]; j <= c; j++){
-                memo[i][j] = Math.max(memo[i-1][j], value[i] + memo[i-1][j-weight[i]]);
+//                memo[i][j] = memo[i-1][j];
+//                if(j >= weight[i])
+                    memo[i][j] = Math.max(memo[i-1][j], value[i] + memo[i-1][j-weight[i]]);
             }
             System.out.println(Arrays.toString(memo[i]));
         }
@@ -92,13 +93,15 @@ public class Solution02 {
         int [] memo = new int[c+1];
 
         for(int i = 0 ;i < weight.length; i++){
-            // 可以从 j = weight[i]开始遍历
-            for(int j = c; j >= weight[i]; j--){
+            // 从 j = c  遍历至 weight[i]
+//            for(int j = weight[i]; j <= c; j++){ 错误的数组表展示
+           for(int j = c; j >= weight[i]; j--){
                 memo[j] = Math.max(memo[j], value[i] + memo[j-weight[i]]);
-            }
+           }
             System.out.println(Arrays.toString(memo));
         }
         return memo[c];
 
     }
+
 }
