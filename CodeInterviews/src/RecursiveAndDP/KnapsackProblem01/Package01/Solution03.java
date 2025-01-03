@@ -1,4 +1,4 @@
-package CodeInterviews.src.RecursiveAndDP.KnapsackProblem;
+package CodeInterviews.src.RecursiveAndDP.KnapsackProblem01.Package01;
 
 import java.util.Arrays;
 import java.util.List;

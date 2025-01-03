@@ -1,4 +1,4 @@
-package CodeInterviews.src.RecursiveAndDP.KnapsackProblem;
+package CodeInterviews.src.RecursiveAndDP.KnapsackProblem01.Package01;
 
 public class Solution01 {
     static int res = 0;
