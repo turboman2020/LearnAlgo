@@ -38,13 +38,15 @@ public class Solution {
     }
 
     public static void lengthOfLIShelper(int[] nums, int index, int curRes) {
-        if(index >= nums.length) return ;
+        if(index >= nums.length) {
+            res = res >= curRes ? res: curRes;
+            return ;
+        }
         for(int i = index+1; i < nums.length; i++){
             if(nums[i] > nums[index]){
                 lengthOfLIShelper(nums, i, curRes + 1 );
             }
         }
-        res = res >= curRes ? res: curRes;
 
     }
 
@@ -104,9 +106,4 @@ public class Solution {
         }
         return res;
     }
-
-
-
-
-
 }
