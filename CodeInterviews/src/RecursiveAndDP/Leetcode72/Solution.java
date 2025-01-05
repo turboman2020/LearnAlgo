@@ -46,6 +46,8 @@ public class Solution {
             cache.put(index1+"_"+index2, minDistanceHelperMem(word1, word2, index1 + 1, index2 + 1));
         }else {
             int del = 1 + minDistanceHelperMem(word1, word2,  index1+1, index2);
+            // word 在index1 之前插入word2.chatAt(index2)的字符，
+            // 但实际未插入，因此word1要对比的下一个的索引还是index1， 与 word2的下一个索引index2+1 对比
             int insert = 1 + minDistanceHelperMem(word1, word2,  index1, index2+1);
             int replace = 1 + minDistanceHelperMem(word1, word2, index1+1, index2 + 1);
             cache.put(index1+"_"+index2, Math.min(replace, Math.min(del, insert)));
