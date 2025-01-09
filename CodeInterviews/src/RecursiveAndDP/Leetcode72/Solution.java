@@ -11,7 +11,7 @@ public class Solution {
 //        minDistance("intention", "execution");
     }
     public static int minDistance(String word1, String word2) {
-        int res = minDistanceHelperDPV2(word1, word2);
+        int res = minDistanceHelperDP(word1, word2);
 
         System.out.println(res);
         return res;
