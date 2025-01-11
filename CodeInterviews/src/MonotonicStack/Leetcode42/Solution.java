@@ -97,6 +97,34 @@ public class Solution {
     }
 
     public static int trapV4(int[] height) {
+        //双指针法
+        //动态规划中 leftMax[i] 和 rightMax[i] 的空间优化
+
+        int res = 0;
+        int n = height.length;
+        int leftMax = height[0];
+        int rightMax = height[n-1];
+
+        int left = 0;
+        int right = n-1;
+
+        while(left < right){
+            leftMax = Math.max(leftMax, height[left]);
+            rightMax = Math.max(rightMax, height[right]);
+            if(leftMax < rightMax){
+                res += leftMax - height[left];
+                left++;
+            } else {
+                res += rightMax - height[right];
+                right--;
+            }
+
+        }
+        return res;
+    }
+
+
+    public static int trapV5(int[] height) {
         //单调栈： 令栈中的元素从栈底到栈顶递减， 栈中存储数组下标，通过单调栈构建接雨水区域
         // 设栈顶的元素为top，栈中top左侧的第一个元素left大于top, 对于新来的元素为下标为i，
         // 如果height[i]大于top，那么就构成了一个接雨水区域；
