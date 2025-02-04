@@ -1,7 +1,4 @@
-package CodeInterviews.src.LeetcodeHot100.P12_leetcode76;
-
-import java.util.Arrays;
-import java.util.HashSet;
+package CodeInterviews.src.LeetcodeHot100.P12_Leetcode76;
 
 public class Solution {
     public static void main(String [] args){
