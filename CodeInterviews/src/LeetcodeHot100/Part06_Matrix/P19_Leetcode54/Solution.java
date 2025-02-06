@@ -1,4 +1,4 @@
-package CodeInterviews.src.LeetcodeHot100.P19_Leetcode54;
+package CodeInterviews.src.LeetcodeHot100.Part06_Matrix.P19_Leetcode54;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,7 +1,6 @@
-package CodeInterviews.src.LeetcodeHot100.P18_Leetcode73;
+package CodeInterviews.src.LeetcodeHot100.Part06_Matrix.P18_Leetcode73;
 
 import java.util.HashSet;
-import java.util.LinkedList;
 
 public class Solution {
     public static void main(String [] args){

@@ -1,4 +1,4 @@
-package CodeInterviews.src.LeetcodeHot100.P21_Leetcode240;
+package CodeInterviews.src.LeetcodeHot100.Part06_Matrix.P21_Leetcode240;
 
 public class Solution {
     public static  void main(String [] args){
