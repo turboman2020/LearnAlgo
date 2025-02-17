@@ -18,7 +18,7 @@ public class Solution {
         for(int i = 0 ; i < prerequisites.length; i++){
 
             int [] cur = prerequisites[i];
-            LinkedList<Integer> curList = map.getOrDefault(cur[1], new LinkedList());
+            LinkedList<Integer> curList = map.getOrDefault(cur[1], new LinkedList<>());
             curList.add(cur[0]);
             map.put(cur[1],curList);
             indegreeArr[cur[0]]++;
