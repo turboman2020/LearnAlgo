@@ -10,15 +10,17 @@ public class treeTraverse {
         int [] arr = new int [] {1, 2, 3, 4 ,5 ,6 ,7 ,8 ,9};
         TreeNode root = buildTree(arr, 0);
         List<Integer> res ;
-        res = preOrderTraverse(root);
-        System.out.println(Arrays.toString(res.toArray()));
-        res = preOrderTraverse2(root);
-        System.out.println(Arrays.toString(res.toArray()));
-//        res = midOrderTraverse(root);
+//        res = preOrderTraverse(root);
 //        System.out.println(Arrays.toString(res.toArray()));
-        postOrderTraverse(root);
-        res = postOrderTraverse3(root);
+//        res = preOrderTraverse2(root);
+//        System.out.println(Arrays.toString(res.toArray()));
+        res = midOrderTraverse(root);
         System.out.println(Arrays.toString(res.toArray()));
+        res = midOrderTraverseV2(root);
+        System.out.println(Arrays.toString(res.toArray()));
+//        postOrderTraverse(root);
+//        res = postOrderTraverse3(root);
+//        System.out.println(Arrays.toString(res.toArray()));
 
     }
 
@@ -62,6 +64,25 @@ public class treeTraverse {
 
         return res;
 
+    }
+
+    public static List<Integer> midOrderTraverseV2(TreeNode root){
+
+        Stack<TreeNode>  stack = new Stack<>();
+        List<Integer> res = new LinkedList<>();
+        while(!stack.isEmpty() || root != null){
+            if(root != null){
+                stack.push(root);
+                root = root.leftChild;
+            } else {
+                root = stack.pop();
+                res.add(root.value);
+                root = root.rightChild;
+
+            }
+
+        }
+        return res;
     }
 
     public static List<Integer> midOrderTraverse(TreeNode root){
@@ -135,6 +156,33 @@ public class treeTraverse {
 
         }
         return  res;
+
+    }
+
+    public static List<Integer> postOrderTraverse4(TreeNode root){
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode preNode = root;
+        List<Integer> res = new LinkedList<>();
+        while(!stack.isEmpty() || root != null){
+            while(root != null){
+                stack.push(root);
+                root = root.leftChild;
+            }
+
+            root = stack.peek();
+             if(root.rightChild == null || preNode == root.rightChild){
+
+                 root = stack.pop();
+                 res.add(root.value);
+                 preNode = root;
+
+                 root = null;
+             } else{
+                 root = root.rightChild;
+             }
+        }
+
+        return res;
 
     }
 }
